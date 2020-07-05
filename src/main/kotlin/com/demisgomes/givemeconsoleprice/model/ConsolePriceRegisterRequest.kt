@@ -1,6 +1,6 @@
 package com.demisgomes.givemeconsoleprice.model
 
-data class ConsolePriceProfitRequest(
+data class ConsolePriceRegisterRequest(
         val consoleName: String,
         val priceInUSD: Double,
         val profitPercentage: Double
