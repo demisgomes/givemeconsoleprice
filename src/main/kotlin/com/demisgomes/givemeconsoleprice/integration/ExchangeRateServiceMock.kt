@@ -1,4 +1,4 @@
-package com.demisgomes.givemeconsoleprice.ext
+package com.demisgomes.givemeconsoleprice.integration
 
 import com.demisgomes.givemeconsoleprice.service.ExchangeRateService
 import org.springframework.stereotype.Service

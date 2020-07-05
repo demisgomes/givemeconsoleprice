@@ -38,7 +38,7 @@ class ConsolePriceService(
     }
 
     fun getConsolePriceById(id:Int): Optional<ConsolePrice> {
-        return consolePriceRepository.findById(Integer(id))
+        return consolePriceRepository.findById(id)
     }
 
     fun calculateProfitFromBRL(consolePriceBRLRequest: ConsolePriceBRLRequest): ConsolePrice {
@@ -47,10 +47,10 @@ class ConsolePriceService(
 
         val priceInBRLBeforeTax = consolePriceBRLRequest.priceInUSD * exchangeRate
         val taxAmount = priceInBRLBeforeTax * taxPercentage
+        val priceInBRLWithTax = priceInBRLBeforeTax + taxAmount
 
-        val profitAmount = consolePriceBRLRequest.priceInBRL - (priceInBRLBeforeTax + taxAmount)
-
-        val profitPercentage = profitAmount/consolePriceBRLRequest.priceInBRL
+        val profitAmount = consolePriceBRLRequest.priceInBRL - (priceInBRLWithTax)
+        val profitPercentage = profitAmount/(priceInBRLWithTax)
 
         return ConsolePrice(
                         consoleName = consolePriceBRLRequest.consoleName,

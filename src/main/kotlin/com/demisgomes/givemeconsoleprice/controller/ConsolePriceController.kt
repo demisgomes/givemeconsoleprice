@@ -34,9 +34,9 @@ class ConsolePriceController(private val consolePriceService: ConsolePriceServic
     }
 
     @GetMapping("/consoles/{id}")
-    fun getConsolePriceByName(@PathVariable id:Int): ResponseEntity<Optional<ConsolePrice>> {
+    fun getConsolePriceByName(@PathVariable id:Int): ResponseEntity<ConsolePrice> {
         val consolePrice = consolePriceService.getConsolePriceById(id)
-        return ResponseEntity.ok(consolePrice)
+        return ResponseEntity.of(consolePrice)
     }
 
 
