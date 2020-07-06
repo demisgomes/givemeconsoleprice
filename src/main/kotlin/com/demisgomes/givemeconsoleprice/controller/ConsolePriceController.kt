@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
+import java.util.*
 
 
 @RestController
@@ -26,7 +27,7 @@ class ConsolePriceController(private val consolePriceService: ConsolePriceServic
         return ResponseEntity.created(uri).build()
     }
 
-    @GetMapping("/profit/calculate")
+    @GetMapping("/calculate")
     fun calculateProfit(@RequestBody consolePriceCalculateRequest: ConsolePriceCalculateRequest): ResponseEntity<ConsolePrice> {
         val consolePrice = consolePriceService.calculateProfitFromBRL(consolePriceCalculateRequest)
         return ResponseEntity.ok(consolePrice)

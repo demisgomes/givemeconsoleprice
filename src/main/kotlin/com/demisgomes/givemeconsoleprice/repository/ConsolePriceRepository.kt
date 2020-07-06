@@ -3,6 +3,4 @@ package com.demisgomes.givemeconsoleprice.repository
 import com.demisgomes.givemeconsoleprice.model.ConsolePrice
 import org.springframework.data.jpa.repository.JpaRepository
 
-interface ConsolePriceRepository : JpaRepository<ConsolePrice, Int>{
-    fun findByConsoleName(consoleName:String)
-}
+interface ConsolePriceRepository : JpaRepository<ConsolePrice, Int>
